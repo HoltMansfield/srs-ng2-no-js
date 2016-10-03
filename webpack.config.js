@@ -1,4 +1,5 @@
 let webpack = require('webpack')
+let HtmlWebpackPlugin = require('html-webpack-plugin')
 
 
 module.exports = {
@@ -36,4 +37,14 @@ module.exports = {
       '.ts' // typescript
     ]
   }
+  ,
+  // plugins
+  plugins: [
+    /* this plugin will output an index.html file into our dist folder based on the tempalte property
+       the outputted file will inculde a script tag pointing at app.bundle.js
+    */
+    new HtmlWebpackPlugin({
+       template: './src/index.html'
+    })
+  ]
 }

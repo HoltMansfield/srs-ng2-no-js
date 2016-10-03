@@ -5,7 +5,8 @@
     "compile": "$(npm bin)/tsc --rootDir src --outDir transpiled",
     "clean": "rimraf dist transpiled",
     "build": "npm run clean && npm run compile",
-    "webpack": "npm run clean && $(npm bin)/webpack --progress"
+    "webpack": "npm run clean && $(npm bin)/webpack --progress",
+    "serve": "webpack-dev-server --inline --progress"
   },
   "dependencies": {
     "@angular/common": "2.0.1",
