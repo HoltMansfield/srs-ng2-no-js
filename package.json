@@ -2,9 +2,10 @@
   "name": "ng-2-webpack-bare-bones",
   "version": "0.0.0",
   "scripts": {
-    "compile": "$(npm bin)/tsc --rootDir src --outDir dist",
-    "clean": "rimraf dist",
-    "build": "npm run clean && npm run compile"
+    "compile": "$(npm bin)/tsc --rootDir src --outDir transpiled",
+    "clean": "rimraf dist transpiled",
+    "build": "npm run clean && npm run compile",
+    "webpack": "npm run clean && $(npm bin)/webpack --progress"
   },
   "dependencies": {
     "@angular/common": "2.0.1",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@types/core-js": "^0.9.34",
+    "awesome-typescript-loader": "^2.2.4",
     "cross-env": "^3.0.0",
     "html-webpack-plugin": "^2.22.0",
     "raw-loader": "^0.5.1",

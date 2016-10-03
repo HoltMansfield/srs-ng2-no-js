@@ -1,3 +1,9 @@
+#webpacks output directory
+dist
+
+#typscript compiler output directory (used for diagnostics by transpiling as a separate step from webpack)
+transpiled
+
 # Logs
 logs
 *.log
@@ -25,7 +31,6 @@ coverage
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
-dist
 
 # Dependency directories
 node_modules
