@@ -1,21 +1,11 @@
 let webpack = require('webpack')
 let HtmlWebpackPlugin = require('html-webpack-plugin')
+let path = require('path')
 
 
 module.exports = {
-  // the point where webpack begins inspecting our code and looking for import statments
-  entry: './src/main.ts',
+  devtool: 'inline-source-map',
 
-  // create an output object for weppack
-  output: {
-
-    // the actual folder where webpack writes files to
-    path: './dist',
-
-    // once webpack has crawled our code and bundled it, output it to this file
-    filename: 'app.bundle.js',
-  }
-  ,
   // webpack has a 'module' object that contains additonal configuration properties
   module: {
      loaders: [
@@ -28,6 +18,7 @@ module.exports = {
      ]
   }
   ,
+
   // webpack has a 'resolve' object that contains additonal configuration properties
   resolve: {
     // tell webpack which extensions to process
@@ -36,15 +27,8 @@ module.exports = {
       '.js', // javascript
       '.ts' // typescript
     ]
+    ,
+    // for testing we don't bundle so we need the concept of a root
+    root: path.join(__dirname, '../..', 'src')
   }
-  ,
-  // plugins
-  plugins: [
-    /* this plugin will output an index.html file into our dist folder based on the template property
-       the outputted file will inculde a script tag pointing at app.bundle.js
-    */
-    new HtmlWebpackPlugin({
-       template: './src/index.html'
-    })
-  ]
 }
