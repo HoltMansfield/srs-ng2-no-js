@@ -11,8 +11,6 @@ let environment = process.env.NODE_ENV || 'development';
 // build a path to the config module for this environment
 let webPackModulePath = `./webpack/webpack-${ environment }-config.js`;
 
-console.log('process.env.NODE_ENV', process.env.NODE_ENV)
-
 // require in the module
 let webpackConfigModule = require(webPackModulePath);
 

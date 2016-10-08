@@ -4,8 +4,6 @@ let HtmlWebpackPlugin = require('html-webpack-plugin')
 // this module includes our common configuration and constants
 let commonConfig = require('./webpack-common-config.js')
 
-console.log('webP@CK staging')
-
 
 const configure = function() {
   /*
@@ -28,7 +26,9 @@ const configure = function() {
     filename: 'app.bundle.js',
   }
 
-  // webpack expects a 'resolve' object that contains additonal configuration properties
+  /*
+    webpack expects a 'resolve' object that tells webpack how to resolve file requests for modules
+  */
   stagingConfig.resolve = {
     //Cache generated modules and chunks to improve performance for multiple incremental builds.
     cache: true,

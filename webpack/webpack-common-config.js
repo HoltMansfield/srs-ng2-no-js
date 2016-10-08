@@ -1,7 +1,7 @@
 const constants = {
   /*
     here we might have things like our path to main.ts
-    values that our various configs downstream would utilize
+    values that our various per-environment configs would utilize
   */
 }
 

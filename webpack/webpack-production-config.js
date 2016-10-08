@@ -4,8 +4,6 @@ let HtmlWebpackPlugin = require('html-webpack-plugin')
 // this module includes our common configuration and constants
 let commonConfig = require('./webpack-common-config.js')
 
-console.log('webP@CK production')
-
 
 const configure = function() {
   /*
@@ -22,13 +20,15 @@ const configure = function() {
   // webpack expects a 'resolve' object that contains additonal configuration properties
   productionConfig.output = {
     // the actual folder where webpack writes files to
-    path: './built/production',
+    path: './built/production2',
 
     // once webpack has crawled our code and bundled it, output it to this file
     filename: 'app.bundle.js',
   }
 
-  // webpack expects a 'resolve' object that contains additonal configuration properties
+  /*
+    webpack expects a 'resolve' object that tells webpack how to resolve file requests for modules
+  */
   productionConfig.resolve = {
     //Cache generated modules and chunks to improve performance for multiple incremental builds.
     cache: true,

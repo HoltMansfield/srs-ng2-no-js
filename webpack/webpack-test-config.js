@@ -5,8 +5,6 @@ let path = require('path')
 // this module includes our common configuration and constants
 let commonConfig = require('./webpack-common-config.js')
 
-console.log('webP@CK test')
-
 
 const configure = function() {
   /*

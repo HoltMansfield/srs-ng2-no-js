@@ -24,4 +24,4 @@ transpile:
   This script will run the typescript compiler and output files into a folder called: 'built/transpiled'.
   Generally speaking if the script completes without errors then transpilation is not the issue.
 
-  A more complex transpilation issue may require inspecting the output in the 'transpiled' folder
+  A more complex transpilation issue may require inspecting the output in the 'transpiled' folder-s
