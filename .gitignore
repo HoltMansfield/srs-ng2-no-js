@@ -1,5 +1,5 @@
 #webpacks output directory
-dist
+built
 
 #typscript compiler output directory (used for diagnostics by transpiling as a separate step from webpack)
 transpiled

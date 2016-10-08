@@ -1,50 +1,23 @@
-let webpack = require('webpack')
-let HtmlWebpackPlugin = require('html-webpack-plugin')
 
+/*
+    possible NODE_ENV values:
 
-module.exports = {
-  // the point where webpack begins inspecting our code and looking for import statments
-  entry: './src/main.ts',
+    'development' | 'staging' | 'production'
+*/
 
-  // create an output object for weppack
-  output: {
+// grab the environment value OR default to 'development'
+let environment = process.env.NODE_ENV || 'development';
 
-    // the actual folder where webpack writes files to
-    path: './dist',
+// build a path to the config module for this environment
+let webPackModulePath = `./webpack/webpack-${ environment }-config.js`;
 
-    // once webpack has crawled our code and bundled it, output it to this file
-    filename: 'app.bundle.js',
-  }
-  ,
-  // webpack has a 'module' object that contains additonal configuration properties
-  module: {
-     loaders: [
-       {
-         // for all the files that match this regex
-         test: /\.ts$/,
-         // transpile them from ts to es5
-         loader: 'awesome-typescript-loader'
-       }
-     ]
-  }
-  ,
-  // webpack has a 'resolve' object that contains additonal configuration properties
-  resolve: {
-    // tell webpack which extensions to process
-    extensions: [
-      '', // no extension (this includes folders)
-      '.js', // javascript
-      '.ts' // typescript
-    ]
-  }
-  ,
-  // plugins
-  plugins: [
-    /* this plugin will output an index.html file into our dist folder based on the template property
-       the outputted file will inculde a script tag pointing at app.bundle.js
-    */
-    new HtmlWebpackPlugin({
-       template: './src/index.html'
-    })
-  ]
-}
+console.log('process.env.NODE_ENV', process.env.NODE_ENV)
+
+// require in the module
+let webpackConfigModule = require(webPackModulePath);
+
+// configure webpack
+let configuration = webpackConfigModule.configure();
+
+// export our configuration so webpack can use it
+module.exports = configuration;

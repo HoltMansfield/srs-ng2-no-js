@@ -2,12 +2,23 @@
   "name": "ng-2-webpack-bare-bones",
   "version": "0.0.0",
   "scripts": {
-    "compile": "$(npm bin)/tsc --rootDir src --outDir transpiled",
-    "clean": "rimraf dist transpiled",
-    "build": "npm run clean && npm run compile",
-    "webpack": "npm run clean && $(npm bin)/webpack --progress",
+    "transpile": "rimraf built/transpiled && npm run _transpile",
+    "_transpile": "$(npm bin)/tsc --rootDir src --outDir built/transpiled",
+
+    "webpack": "cross-env NODE_ENV=development npm run _webpack-development",
+    "_webpack-development": "rimraf built/dev && npm run _webpack",
+
+    "webpack-production": "cross-env NODE_ENV=production npm run _webpack-production",
+    "_webpack-production": "rimraf built/production && npm run _webpack",
+
+    "webpack-staging": "cross-env NODE_ENV=staging npm run _webpack-staging",
+    "_webpack-staging": "rimraf built/staging && npm run _webpack",
+
+    "_webpack": "$(npm bin)/webpack --progress",
+
     "serve": "webpack-dev-server --inline --progress",
-    "test": "karma start ./test/karma.conf.js"
+    "test": "cross-env NODE_ENV=test && npm run _karma",
+    "_karma": "karma start ./karma/karma.conf.js"
   },
   "dependencies": {
     "@angular/common": "2.0.1",
