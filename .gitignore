@@ -1,6 +1,9 @@
 #webpacks output directory
 built
 
+#I'm still figuring out atom+typsescript and right now it's outputting JS files
+/src/**/*.js
+
 #typscript compiler output directory (used for diagnostics by transpiling as a separate step from webpack)
 transpiled
 
