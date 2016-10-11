@@ -2,6 +2,9 @@ import { Component } from '@angular/core'
 
 @Component({
   selector: 'my-app',
-  template: '<b>Angular is running on webpack.....</b>'
+  template:
+  `
+    <div class='welcome'>Angular is running on webpack.....</div>
+  `
 })
 export class AppComponent { }

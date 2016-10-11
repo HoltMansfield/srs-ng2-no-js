@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser'
 
 import { AppComponent } from './app.component'
 
+import './style/global-styles.css';
+
 // this is an absolute bare bones ng-module definition
 @NgModule({
   declarations: [
