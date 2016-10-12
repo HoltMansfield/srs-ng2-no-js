@@ -4,8 +4,22 @@ import { Component } from '@angular/core'
   selector: 'my-app',
   template:
   `
-    <h1>Much SaSS!!!</h1>
-    <div class='welcome'>Angular is running on webpack.....</div>
+    <form class="form-inline">
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control" placeholder="yyyy-mm-dd"
+                 name="dateChosen" [(ngModel)]="model" ngbDatepicker #dtp="ngbDatepicker">
+          <div class="input-group-addon" (click)="dtp.toggle()" >
+            Appropriate Icon Here
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <br/>
+    <pre>Model: {{ model | json }}</pre>
   `
 })
-export class AppComponent { }
+export class AppComponent {
+  model;
+}

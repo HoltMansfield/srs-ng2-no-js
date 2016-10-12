@@ -2,10 +2,14 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 
-import { AppComponent } from './app.component'
+// need this for ngModel
+import { FormsModule }   from '@angular/forms';
 
-import './style/global-styles.scss';
-import './style/test.css';
+import { AppComponent } from './app.component'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+
+import './scss/bootstrap/scss/bootstrap.scss'
+import './scss/global-styles.scss'
 
 // this is an absolute bare bones ng-module definition
 @NgModule({
@@ -13,7 +17,9 @@ import './style/test.css';
     AppComponent // we need to declare our AppComponent in this module so we can boostrap it below
   ],
   imports: [
-    BrowserModule // this is a minnimum requirement for running angular in a browser
+    BrowserModule,
+    FormsModule,
+    NgbModule.forRoot()
   ],
   bootstrap: [AppComponent] // this is the boostrapping of our AppComponent
 })

@@ -61,7 +61,7 @@ const configure = function() {
           test: /\.s?css$/,
           exclude: path.join('src', 'app'),
           loaders: [
-            // Step 3: now that evertyhing is processed extract into a file we name in 'plugins'
+            // Step 3: ExtractTextPlugin runs the 'style' loader and then takes the css and outputs to a file we name in 'plugins'
             ExtractTextPlugin.extract('style'),
             // Step 2: run the css loader
             'css'

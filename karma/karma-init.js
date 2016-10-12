@@ -13,6 +13,10 @@ require('zone.js/dist/jasmine-patch');
 require('zone.js/dist/async-test');
 require('zone.js/dist/fake-async-test');
 
+//ng-bootstrap
+require('@ng-bootstrap/ng-bootstrap');
+
+
 /*
   Webpack attaches a 'context()' method to 'require'
   It allows us to require in each file in a directory structure
