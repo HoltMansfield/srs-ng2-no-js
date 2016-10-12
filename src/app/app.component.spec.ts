@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing'
 // deps of system under test
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { FormsModule }   from '@angular/forms'
+import { RouterModule }   from '@angular/router'
 
 // note that we can test a component independently of its module
 import { AppComponent } from './app.component'
@@ -15,7 +16,8 @@ describe('App', () => {
       declarations: [AppComponent],
       imports: [
         NgbModule.forRoot(),
-        FormsModule
+        FormsModule,
+        RouterModule.forRoot([])
       ]
     });
   });
