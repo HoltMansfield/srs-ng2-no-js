@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 
 // need this for ngModel
-import { FormsModule }   from '@angular/forms';
+import { FormsModule }   from '@angular/forms'
 
 import { AppComponent } from './app.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'

@@ -1,4 +1,6 @@
 import { TestBed } from '@angular/core/testing'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { FormsModule }   from '@angular/forms'
 
 // note that we can test a component independently of its module
 import { AppComponent } from './app.component'
@@ -8,7 +10,11 @@ describe('App', () => {
   beforeEach(() => {
     // provide concrete implementations or mocks to the dependency injector
     TestBed.configureTestingModule({
-      declarations: [AppComponent]
+      declarations: [AppComponent],
+      imports: [
+        NgbModule.forRoot(),
+        FormsModule
+      ]
     });
   });
 
