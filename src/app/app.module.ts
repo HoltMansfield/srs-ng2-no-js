@@ -18,7 +18,12 @@ import { RouterModule }   from '@angular/router'
 // our main app component
 import { AppComponent } from './app.component'
 // our routes
-import { AppRoutes, RoutableComponents } from './core/routing/routes.ts'
+import { AppRoutes } from './core/routing/routes.ts'
+
+// bring in all of our routable components so we can declare them for the router
+import { HomeComponent } from './core/home/home.component.ts'
+import { LoginComponent } from './core/user/login.component.ts'
+import { RouteDemoSnapshotComponent } from './core/routing/routing-demos/route-demo-snapshot.component.ts'
 
 
 // ngBootstrap
@@ -30,7 +35,10 @@ import './scss/global-styles.scss'
 
 // We need to declare all of our routable components, so we export a tidy array from routes.ts
 let declarations: Component[] = [
-  ...RoutableComponents,  AppComponent
+  AppComponent,
+  HomeComponent,
+  LoginComponent,
+  RouteDemoSnapshotComponent
 ]
 
 // we then push on our actual 'App' component

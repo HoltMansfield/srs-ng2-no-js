@@ -84,6 +84,13 @@ const configure = function() {
     new ExtractTextPlugin("[name].[hash].css")
   ]
 
+  developmentConfig.devServer = {
+    contentBase: './src',
+    historyApiFallback: true,
+    quiet: true,
+    stats: 'minimal' // none (or false), errors-only, minimal, normal (or true) and verbose
+  }
+
   return developmentConfig
 }
 
