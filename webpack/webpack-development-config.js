@@ -70,12 +70,12 @@ const configure = function() {
             'sass'
           ]
         }
-        // ,
-        // // Html files requested when lazy loading modules
-        // {
-        //   test: /\.html$/,
-        //   loader: 'html'
-        // }
+        ,
+        // Html files requested when lazy loading modules
+        {
+          test: /\.html$/,
+          loader: 'html'
+        }
      ]
   }
 
