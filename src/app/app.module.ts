@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { Component } from '@angular/core'
+import {APP_BASE_HREF} from '@angular/common'
 
 // Observables
 import 'rxjs/Observable';
@@ -47,13 +48,17 @@ declarations.unshift(AppComponent)
 @NgModule({
   declarations: [
     declarations
-  ],
+  ]
+  ,
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(AppRoutes),
     NgbModule.forRoot()
-  ],
+  ]
+  ,
+  providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+  ,
   bootstrap: [AppComponent]
 })
 export class AppModule { }

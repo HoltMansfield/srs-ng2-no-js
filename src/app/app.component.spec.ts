@@ -4,6 +4,8 @@ import { TestBed } from '@angular/core/testing'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { FormsModule }   from '@angular/forms'
 import { RouterModule }   from '@angular/router'
+import {APP_BASE_HREF} from '@angular/common'
+
 
 // note that we can test a component independently of its module
 import { AppComponent } from './app.component'
@@ -18,7 +20,8 @@ describe('App', () => {
         NgbModule.forRoot(),
         FormsModule,
         RouterModule.forRoot([])
-      ]
+      ],
+      providers: [{provide: APP_BASE_HREF, useValue : '/' }]
     });
   });
 

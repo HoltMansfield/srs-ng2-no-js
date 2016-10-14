@@ -52,7 +52,7 @@ const configure = function() {
        // Typescript
        {
          test: /\.ts$/,
-         loader: 'awesome-typescript-loader',
+         loaders: ['awesome-typescript-loader', 'angular2-template-loader', 'angular2-router-loader'],
          exclude: [/\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
        }
        ,
@@ -70,6 +70,12 @@ const configure = function() {
             'sass'
           ]
         }
+        // ,
+        // // Html files requested when lazy loading modules
+        // {
+        //   test: /\.html$/,
+        //   loader: 'html'
+        // }
      ]
   }
 

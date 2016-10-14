@@ -17,15 +17,20 @@ export const AppRoutes: Routes = [
       path: 'login',
       component: LoginComponent
     }
-  ,
+    ,
     {
       path: 'route-data-demo/:id',
       component: RouteDemoSnapshotComponent
     }
-  ,
+    ,
     {
       // default route
       path: '',
       component: HomeComponent
+    }
+    ,
+    {
+      path: 'about',
+      loadChildren: '../+about/about.module#AboutModule'
     }
 ]
