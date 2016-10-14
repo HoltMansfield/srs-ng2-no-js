@@ -4,10 +4,9 @@ import { Component } from '@angular/core'
   selector: 'home',
   template:
   `
-    <div>This simple link doesn't require the [expression-syntax]</div>
+    <div>This link is local</div>
     <a routerLink="/login">Click Here to Log In</a>
-    <div>This link uses the array literal syntax and that requires expression evaluation</div>
-    <a [routerLink]="['route-data-demo', '420']">Snapshot Route param demo</a>
+    <div>This link is lazy</div>
     <a routerLink='/about'>a boot</a>
   `
 })

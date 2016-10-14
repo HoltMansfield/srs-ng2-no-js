@@ -7,20 +7,12 @@ import { Routes } from '@angular/router'
 import { HomeComponent } from '../home/home.component.ts'
 import { LoginComponent } from '../user/login.component.ts'
 
-// demonstration of basic routing techniques
-import { RouteDemoSnapshotComponent } from './routing-demos/route-demo-snapshot.component.ts'
-
 
 // ROUTES
 export const AppRoutes: Routes = [
     {
       path: 'login',
       component: LoginComponent
-    }
-    ,
-    {
-      path: 'route-data-demo/:id',
-      component: RouteDemoSnapshotComponent
     }
     ,
     {
