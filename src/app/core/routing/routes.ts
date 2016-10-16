@@ -38,9 +38,6 @@ export const AppRoutes: Routes = [
     ,
     {
       path: 'lcr',
-      loadChildren: '../loadChild/loadChild.module#LoadChildModule',
-      data: {
-        preload: true
-      }
+      loadChildren: '../loadChild/loadChild.module#LoadChildModule'
     }
 ]

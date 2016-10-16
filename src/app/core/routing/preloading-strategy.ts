@@ -4,7 +4,7 @@ import 'rxjs/add/observable/of'
 
 export class MyPreloadingStrategy implements PreloadingStrategy {
   preload(route: Route, fn: () => Observable<any>): Observable<any> {
-    if (route.data['preload']) {
+    if (route.data && route.data['preload']) {
         return fn();
     }
     else {
