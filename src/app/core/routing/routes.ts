@@ -7,14 +7,11 @@ import { Routes } from '@angular/router'
 import { HomeComponent } from '../home/home.component.ts'
 import { LoginComponent } from '../user/login.component.ts'
 
+import { ContactComponent } from '../contact/contact.component.ts'
+
 
 // ROUTES
 export const AppRoutes: Routes = [
-    {
-      path: 'login',
-      component: LoginComponent
-    }
-    ,
     {
       // default route
       path: '',
@@ -22,7 +19,28 @@ export const AppRoutes: Routes = [
     }
     ,
     {
+      path: 'login',
+      component: LoginComponent
+    }
+    ,
+    {
       path: 'about',
-      loadChildren: '../+about/about.module#AboutModule'
+      loadChildren: '../+about/about.module#AboutModule',
+      data: {
+        preload: true
+      }
+    }
+    ,
+    {
+      path: 'contact',
+      component: ContactComponent
+    }
+    ,
+    {
+      path: 'lcr',
+      loadChildren: '../loadChild/loadChild.module#LoadChildModule',
+      data: {
+        preload: true
+      }
     }
 ]

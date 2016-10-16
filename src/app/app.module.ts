@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { Component } from '@angular/core'
-import {APP_BASE_HREF} from '@angular/common'
+import { APP_BASE_HREF } from '@angular/common'
 
 // Observables
 import 'rxjs/Observable';
@@ -14,6 +14,8 @@ import 'rxjs/add/operator/map';
 import { FormsModule }   from '@angular/forms'
 // router
 import { RouterModule }   from '@angular/router'
+// our routing strategy
+import { MyPreloadingStrategy } from './core/routing/preloading-strategy.ts'
 
 
 // our main app component
@@ -24,6 +26,9 @@ import { AppRoutes } from './core/routing/routes.ts'
 // bring in all of our routable components so we can declare them for the router
 import { HomeComponent } from './core/home/home.component.ts'
 import { LoginComponent } from './core/user/login.component.ts'
+
+
+import { ContactComponent } from './core/contact/contact.component.ts'
 
 
 // ngBootstrap
@@ -37,7 +42,8 @@ import './scss/global-styles.scss'
 let declarations: Component[] = [
   AppComponent,
   HomeComponent,
-  LoginComponent
+  LoginComponent,
+  ContactComponent
 ]
 
 // we then push on our actual 'App' component
@@ -51,11 +57,16 @@ declarations.unshift(AppComponent)
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(AppRoutes),
+    RouterModule.forRoot(AppRoutes,
+      { preloadingStrategy: MyPreloadingStrategy }
+    ),
     NgbModule.forRoot()
   ]
   ,
-  providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+  providers: [
+      { provide: APP_BASE_HREF, useValue: '/' },
+      MyPreloadingStrategy
+    ]
   ,
   bootstrap: [AppComponent]
 })
