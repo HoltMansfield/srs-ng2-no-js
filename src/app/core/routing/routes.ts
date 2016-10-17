@@ -28,7 +28,8 @@ export const AppRoutes: Routes = [
       loadChildren: '../+about/about.module#AboutModule',
       data: {
         preload: true
-      }
+      },
+      canActivate: ['EnsureLoginGuard']
     }
     ,
     {

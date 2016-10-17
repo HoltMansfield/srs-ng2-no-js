@@ -11,11 +11,14 @@ import 'rxjs/Subscription';
 import 'rxjs/add/operator/map';
 
 // need this for ngModel
-import { FormsModule }   from '@angular/forms'
+import { FormsModule } from '@angular/forms'
 // router
-import { RouterModule }   from '@angular/router'
+import { RouterModule } from '@angular/router'
 // our routing strategy
 import { MyPreloadingStrategy } from './core/routing/preloading-strategy.ts'
+// our routing guard provider and user provider
+import { EnsureLoginGuard } from './core/routing/guards/ensure-login-guard.ts'
+import { User } from './core/user/user-provider.ts'
 
 
 // our main app component
@@ -46,9 +49,6 @@ let declarations: Component[] = [
   ContactComponent
 ]
 
-// we then push on our actual 'App' component
-declarations.unshift(AppComponent)
-
 @NgModule({
   declarations: [
     declarations
@@ -65,7 +65,10 @@ declarations.unshift(AppComponent)
   ,
   providers: [
       { provide: APP_BASE_HREF, useValue: '/' },
-      MyPreloadingStrategy
+      { provide: MyPreloadingStrategy, useClass: MyPreloadingStrategy },
+      { provide: User, useClass: User },
+      // defining this like the other providers does not work and I suspect it's because the route definition references this provider with a string name
+      { provide: 'EnsureLoginGuard', useClass: EnsureLoginGuard }
     ]
   ,
   bootstrap: [AppComponent]
