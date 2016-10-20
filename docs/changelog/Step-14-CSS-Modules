@@ -14,3 +14,9 @@ webpack:
   one that matches (?!\.module).scss
 
   Anything named *.module.scss is a css module and is scoped via prefixing
+
+Additons:
+  home.module.scss (demonstrates sass-compilation and css-module pre-fixing)
+
+Changes:
+    home.component now imports a css module
