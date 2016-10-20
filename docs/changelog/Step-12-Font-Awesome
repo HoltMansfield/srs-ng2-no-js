@@ -1,0 +1,13 @@
+Webpack Changes:
+  fontLoaders got added to webpack-development-config
+
+
+package.json
+  -url-loader (fonts get mapped to dataURL by webpack)
+  -file-loader (fonts too big to get mapped served as files)
+
+New Files:
+  font-awesome & fonts folders inside of scss
+
+Updates:
+  bootstrap.scss now imports font-awesome at the bottom

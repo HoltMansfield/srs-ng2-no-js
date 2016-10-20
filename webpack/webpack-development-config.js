@@ -6,6 +6,51 @@ let path = require('path')
 // this module includes our common configuration and constants
 let commonConfig = require('./webpack-common-config.js')
 
+let fontLoaders = [
+  {
+    test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+    loader: "url",
+    query: {
+      limit: 10000,
+      mimetype: "application/font-woff",
+      name: 'fonts/[hash].[ext]'
+    },
+  },
+  {
+    test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+    loader: "url",
+    query: {
+      limit: 10000,
+      mimetype: "application/font-woff",
+      name: 'fonts/[hash].[ext]'
+    },
+  },
+  {
+    test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+    loader: "url",
+    query: {
+      limit: 10000,
+      mimetype: "application/octet-stream",
+      name: 'fonts/[hash].[ext]'
+    },
+  },
+  {
+    test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+    loader: "file",
+    query: {
+      name: 'fonts/[hash].[ext]'
+    },
+  },
+  {
+    test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+    loader: "url",
+    query: {
+      limit: 10000,
+      mimetype: "image/svg+xml",
+      name: 'fonts/[hash].[ext]'
+    }
+  }
+]
 
 const configure = function() {
   /*
@@ -96,6 +141,9 @@ const configure = function() {
     quiet: true,
     stats: 'minimal' // none (or false), errors-only, minimal, normal (or true) and verbose
   }
+
+  // merge font loaders
+  developmentConfig.module.loaders.push(...fontLoaders)
 
   return developmentConfig
 }
