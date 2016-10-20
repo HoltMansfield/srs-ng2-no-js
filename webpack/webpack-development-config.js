@@ -6,6 +6,12 @@ let path = require('path')
 // this module includes our common configuration and constants
 let commonConfig = require('./webpack-common-config.js')
 
+// Roll up all global sass into this file (Boostrap, Font-Awesome)
+let extractTextGlobalSass = new ExtractTextPlugin("/css/global.[name].[hash].css")
+// Roll up all sass that is processed by CSS-Modules (all selectors get prefixed)
+let extractTextScopedSass = new ExtractTextPlugin("/css/scoped.[name].[hash].css")
+
+
 let fontLoaders = [
   {
     test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
@@ -101,19 +107,16 @@ const configure = function() {
          exclude: [/\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
        }
        ,
-       // CSS
+       // Global SCSS (selectors we don't want css-modules to prefix)
        {
-          test: /\.s?css$/,
-          exclude: path.join('src', 'app'),
-          loaders: [
-            // Step 3: ExtractTextPlugin runs the 'style' loader and then takes the css and outputs to a file we name in 'plugins'
-            ExtractTextPlugin.extract('style'),
-            // Step 2: run the css loader
-            'css'
-            ,
-            // Step 1: run the sass loader
-            'sass'
-          ]
+          test: /^((?!\.module).)*scss$/, // reads in everything but *.module.css & *.module.scss
+          loader: extractTextGlobalSass.extract('css!sass')
+        }
+       ,
+       // CSS Modules only (selectors process by css-modules and prefixed)
+       {
+          test: /\.module.scss$/, // only reads in *.module.scss
+          loader: extractTextScopedSass.extract('css?modules&importLoaders=1&sourceMap&localIdentName=[name]__[local]___[hash:base64:5]!sass')
         }
         ,
         // Html files requested when lazy loading modules
@@ -131,8 +134,8 @@ const configure = function() {
        template: './src/index.html'
     })
     ,
-    // output all found css to this file
-    new ExtractTextPlugin("[name].[hash].css")
+    extractTextGlobalSass,
+    extractTextScopedSass
   ]
 
   developmentConfig.devServer = {

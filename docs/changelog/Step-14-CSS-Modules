@@ -1,0 +1,16 @@
+What are CSS-Modules
+
+https://github.com/css-modules/css-modules
+
+
+webpack:
+  we now split our css into two files, one for sass with global selectors
+  such as boostrap col-12 (these should be global)
+
+  The other file is all scss files that are run through css-modules to be prefixed
+
+  ExtractTextPlugin does the ouptutting of files and we have two loaders
+  one that matches *.module.scss
+  one that matches (?!\.module).scss
+
+  Anything named *.module.scss is a css module and is scoped via prefixing

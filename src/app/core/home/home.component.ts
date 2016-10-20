@@ -1,12 +1,14 @@
 import { Component } from '@angular/core'
 
+let styles = require('./home.module.scss')
+
 @Component({
   selector: 'home',
   template:
   `
   <div>
   <span class="fa fa-2x fa-pencil-square-o" style="vertical-align: middle;"></span>
-  <span style="font-weight: 700">Icon Life</span>
+  <span style="font-weight: 700" class="${ styles.red }">Icon Life</span>
   </div>
     <div>This link is local</div>
     <a routerLink="/login">Click Here to Log In</a>
