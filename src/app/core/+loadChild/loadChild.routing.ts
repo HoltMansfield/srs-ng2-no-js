@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 
-import { LoadChildComponent } from './loadChild.component.ts'
+import { LoadChildComponent } from './loadChild.component'
 
 let routes: Routes = [
   {

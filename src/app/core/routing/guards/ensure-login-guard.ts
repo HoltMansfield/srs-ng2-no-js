@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { CanActivate } from '@angular/router'
-import { User } from '../../user/user-provider.ts'
+import { User } from '../../user/user-provider'
 
 @Injectable()
 export class EnsureLoginGuard implements CanActivate {
