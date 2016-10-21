@@ -4,10 +4,10 @@
 import { Routes } from '@angular/router'
 
 // bring in all of our routable components
-import { HomeComponent } from '../home/home.component.ts'
-import { LoginComponent } from '../user/login.component.ts'
+import { HomeComponent } from '../home/home.component'
+import { LoginComponent } from '../user/login.component'
 
-import { ContactComponent } from '../contact/contact.component.ts'
+import { ContactComponent } from '../contact/contact.component'
 
 
 // ROUTES

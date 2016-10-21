@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 
-import { LoadChildRouting } from './loadChild.routing.ts'
-import { LoadChildComponent } from './loadChild.component.ts'
+import { LoadChildRouting } from './loadChild.routing'
+import { LoadChildComponent } from './loadChild.component'
 
 @NgModule({
   imports: [LoadChildRouting]
@@ -9,5 +9,5 @@ import { LoadChildComponent } from './loadChild.component.ts'
 export class LoadChildModule { }
 
 /*
-    by bringing in the routing module we nicely chain in the addition of our routes    
+    by bringing in the routing module we nicely chain in the addition of our routes
 */

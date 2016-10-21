@@ -5,33 +5,33 @@ import { Component } from '@angular/core'
 import { APP_BASE_HREF } from '@angular/common'
 
 // Observables
-import 'rxjs/Observable';
-import 'rxjs/Subject';
-import 'rxjs/Subscription';
-import 'rxjs/add/operator/map';
+import 'rxjs/Observable'
+import 'rxjs/Subject'
+import 'rxjs/Subscription'
+import 'rxjs/add/operator/map'
 
 // need this for ngModel
 import { FormsModule } from '@angular/forms'
 // router
 import { RouterModule } from '@angular/router'
 // our routing strategy
-import { MyPreloadingStrategy } from './core/routing/preloading-strategy.ts'
+import { MyPreloadingStrategy } from './core/routing/preloading-strategy'
 // our routing guard provider and user provider
-import { EnsureLoginGuard } from './core/routing/guards/ensure-login-guard.ts'
-import { User } from './core/user/user-provider.ts'
+import { EnsureLoginGuard } from './core/routing/guards/ensure-login-guard'
+import { User } from './core/user/user-provider'
 
 
 // our main app component
 import { AppComponent } from './app.component'
 // our routes
-import { AppRoutes } from './core/routing/routes.ts'
+import { AppRoutes } from './core/routing/routes'
 
 // bring in all of our routable components so we can declare them for the router
-import { HomeComponent } from './core/home/home.component.ts'
-import { LoginComponent } from './core/user/login.component.ts'
+import { HomeComponent } from './core/home/home.component'
+import { LoginComponent } from './core/user/login.component'
 
 
-import { ContactComponent } from './core/contact/contact.component.ts'
+import { ContactComponent } from './core/contact/contact.component'
 
 
 // ngBootstrap
