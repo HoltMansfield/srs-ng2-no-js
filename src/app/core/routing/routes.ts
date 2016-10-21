@@ -4,7 +4,7 @@
 import { Routes } from '@angular/router'
 
 // bring in all of our routable components
-import { HomeComponent } from '../home/home.component.ts'
+import { HomeComponent } from '../home/home.component'
 import { LoginComponent } from '../user/login.component.ts'
 
 import { ContactComponent } from '../contact/contact.component.ts'
@@ -16,6 +16,11 @@ export const AppRoutes: Routes = [
       // default route
       path: '',
       component: HomeComponent
+    }
+    ,
+    {
+      path: 'welcome',
+      loadChildren: '../../../app/routes/welcome/welcome.module#WelcomeModule',
     }
     ,
     {
