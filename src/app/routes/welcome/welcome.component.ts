@@ -5,7 +5,7 @@ import { Component } from '@angular/core'
   template:
   `
     <div>
-      snippet :)
+      Welcome
     </div>
   `
 })
