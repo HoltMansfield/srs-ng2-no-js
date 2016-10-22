@@ -11,13 +11,14 @@ let extractTextGlobalSass = new ExtractTextPlugin("/css/global.[name].[hash].css
 // Roll up all sass that is processed by CSS-Modules (all selectors get prefixed)
 let extractTextScopedSass = new ExtractTextPlugin("/css/scoped.[name].[hash].css")
 
-
+ // if a data url exceeds 5K, use the file-loader
+let fontLimit = 50000;
 let fontLoaders = [
   {
     test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
     loader: "url",
     query: {
-      limit: 10000,
+      limit: fontLimit,
       mimetype: "application/font-woff",
       name: 'fonts/[hash].[ext]'
     },
@@ -26,7 +27,7 @@ let fontLoaders = [
     test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
     loader: "url",
     query: {
-      limit: 10000,
+      limit: fontLimit,
       mimetype: "application/font-woff",
       name: 'fonts/[hash].[ext]'
     },
@@ -35,7 +36,7 @@ let fontLoaders = [
     test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
     loader: "url",
     query: {
-      limit: 10000,
+      limit: fontLimit,
       mimetype: "application/octet-stream",
       name: 'fonts/[hash].[ext]'
     },
@@ -51,7 +52,7 @@ let fontLoaders = [
     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
     loader: "url",
     query: {
-      limit: 10000,
+      limit: fontLimit,
       mimetype: "image/svg+xml",
       name: 'fonts/[hash].[ext]'
     }
