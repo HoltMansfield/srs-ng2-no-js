@@ -17,7 +17,7 @@ import { RouterModule, PreloadAllModules } from '@angular/router'
 // ngBootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
-// our routing guard provider and user provider
+// bring in providers for registration
 import { EnsureLoginGuard } from './core/routing/guards/ensure-login-guard'
 import { User } from './core/user/user-provider'
 
@@ -25,11 +25,13 @@ import { User } from './core/user/user-provider'
 import { AppComponent } from './app.component'
 // our routes
 import { AppRoutes } from './core/routing/routes'
+// header/footer
+import { PageModule } from './core/page/page.module'
 
 
 // SASS imports
-import './scss/bootstrap/scss/bootstrap.scss'
-import './scss/global-styles.scss'
+import './../scss/bootstrap/bootstrap.scss'
+import './../scss/global-styles.scss'
 
 
 @NgModule({
@@ -38,12 +40,15 @@ import './scss/global-styles.scss'
   ]
   ,
   imports: [
+    // Third Party Dependencies
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(AppRoutes,
       { preloadingStrategy: PreloadAllModules }
     ),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    // Our Dependencies
+    PageModule
   ]
   ,
   providers: [

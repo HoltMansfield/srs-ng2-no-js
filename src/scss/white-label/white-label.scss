@@ -1,0 +1,20 @@
+$panelColor: #297053; //blue
+$trimColor: #603d18; //brown
+
+.panelColorText {
+  color: $panelColor;
+}
+
+.panelColor {
+  background-color: $panelColor;
+}
+
+.trimBorder {
+  border-color: $trimColor;
+  border-width: 1px;
+  border-style: 1px;
+}
+
+.smallTextShadow {
+  text-shadow: 1px 1px 1px #ccc;
+}

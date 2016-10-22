@@ -1,0 +1,25 @@
+@import './white-label/white-label.scss';
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom === footer height */
+  margin-bottom: 50px;
+  background-color: #dbdbdb;
+
+  font-family: Tahoma,Verdana,Segoe,sans-serif;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: #4f4f4f;
+}
+
+.icon-with-text {
+  vertical-align: middle;
+}

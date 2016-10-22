@@ -4,9 +4,13 @@ import { Component } from '@angular/core'
   selector: 'my-app',
   template:
   `
-    <div>Header</div>
-    <router-outlet></router-outlet>
-    <div>Footer</div>
+    <div class="container-fluid">
+      <div class="row">
+        <header></header>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <app-footer></app-footer>
   `
 })
 export class AppComponent {
